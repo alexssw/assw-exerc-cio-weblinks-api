@@ -1,0 +1,9 @@
+server:
+  port: 8080
+spring:
+  profiles: local
+  applicatoion:
+    name: assw-exerc-cio-weblinks-api
+logging:
+  level:
+    com.assw.exerc.cio.weblinks.api
