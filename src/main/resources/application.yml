@@ -4,6 +4,8 @@ spring:
   profiles: local
   applicatoion:
     name: assw-exerc-cio-weblinks-api
-logging:
-  level:
-    com.assw.exerc.cio.weblinks.api
+#logging:
+#  level:
+#    root: ERROR
+#    org.springframework.web: ERROR
+#    com.assw.exerc.cio.weblinks.api: DEBUG

@@ -1,7 +1,7 @@
 package com.assw.exerc.cio.weblinks.api.controller;
 
-import com.assw.exerc.cio.weblinks.api.controller.dto.WeblinksApi;
-import com.assw.exerc.cio.weblinks.api.service.WeblinksService;
+import com.assw.exerc.cio.weblinks.api.controller.dto.LinkApi;
+import com.assw.exerc.cio.weblinks.api.service.LinkService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
@@ -14,16 +14,16 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @Api(value = "'Weblinks CIO Exerc", tags = {"Weblinks CIO"})
-public class WeblinksController {
+public class LinksController {
 
     @Autowired
-    WeblinksService weblinksService;
+    LinkService weblinksService;
 
     @ApiOperation(value = "Web links by url")
     @RequestMapping(value = "/weblinks", method = RequestMethod.GET,produces = MediaType.APPLICATION_JSON_VALUE)
-    public WeblinksApi getJsonWebLinks(
+    public LinkApi getJsonWebLinks(
             @ApiParam(name = "url", example = "www.google.com", required = true, value = "Enter with web link")
-            @RequestParam(name = "weblink") String url) {
-        return weblinksService.getWeblinks();
+            @RequestParam(name = "weblink") String url) throws Exception {
+        return weblinksService.getLinks(url);
     }
 }
