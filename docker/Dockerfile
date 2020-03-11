@@ -1,6 +1,8 @@
 FROM openjdk:8-jdk-alpine
-LABEL maintainer="Alexssw"
-ARG JAR_FILE=target/assw-exerc-cio-weblinks-api-0.0.1-SNAPSHOT.jar
-COPY ${JAR_FILE} app.jar
+RUN apk add --update
+COPY build/libs/*.jar /usr/src/app/assw-exerc-cio-weblinks-api.jar
+WORKDIR /usr/src/app
+ENV JAVA_OPTS="-Dspring.profiles.active=local"
+ENTRYPOINT["/usr/bin/java"]
+CMD["-jar","/usr/src/app/assw-exerc-cio-weblinks-api.jar"]
 EXPOSE 8080
-ENTRYPOINT ["java","-jar","/app.jar"]
