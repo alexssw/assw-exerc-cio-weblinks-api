@@ -20,10 +20,10 @@ public class LinksController {
     LinkService weblinksService;
 
     @ApiOperation(value = "Web links by url")
-    @RequestMapping(value = "/weblinks", method = RequestMethod.GET,produces = MediaType.APPLICATION_JSON_VALUE)
+    @RequestMapping(value = "/weblinks", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public LinkApi getJsonWebLinks(
             @ApiParam(name = "url", example = "www.google.com", required = true, value = "Enter with web link")
-            @RequestParam(name = "weblink") String url) throws Exception {
+            @RequestParam(name = "url") String url) throws Exception {
         return weblinksService.getLinks(url);
     }
 }
